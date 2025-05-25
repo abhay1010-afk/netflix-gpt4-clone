@@ -4,7 +4,7 @@ const checkvalidate=(email,password,name)=>{
    const IsNameValid=/\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/.test(name);
    if(!IsemailValid)return "Email id is not valid";
    if(!IspasswordValid)return "password is not valid";
-       if (IsNameValid&&name !== undefined && (!name || name.trim().length === 0)) {
+       if (name !== undefined && (!name || name.trim().length === 0)&&(IsNameValid) ){
     return "Name is not valid";
   }
    return null;
