@@ -1,10 +1,18 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import checkvalidate from "../utils/checkvalidate";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
+import { auth } from "../utils/firebase";
+
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { Logo_Netflix } from "../utils/Constant";
 
 const Login=()=>{
     const [isSignInForm,SetSignInForm]=useState(true);
     const [errormessage,setErrorMessage]=useState(null);
+   
+    const dispatch=useDispatch();
     const email=useRef(null);
     const password=useRef(null);
     const name=useRef(null);
@@ -15,8 +23,9 @@ const Login=()=>{
   const handleClick = () => {
     const emailVal = email.current.value;
     const passwordVal = password.current.value;
-    const nameVal = name.current ? name.current.value : "";
-;
+    const nameVal = name.current ? name.current.value: "";
+  
+
 
     let message;
     if (isSignInForm) {
@@ -27,12 +36,49 @@ const Login=()=>{
 
     setErrorMessage(message);
     if (message) return;
+    if(!isSignInForm){
+      createUserWithEmailAndPassword(auth, emailVal, passwordVal)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    updateProfile(user, {displayName:nameVal,
+   photoURL: "https://example.com/jane-q-user/profile.jpg"
+}).then(() => {
+  // Profile updated!
+  // ...
+   const {uid,email,displayName }=auth;
+      // ...
+      dispatch(addUser({uid: uid,email: email,displayName:displayName}));
+ 
+}).catch((error) => {
+  // An error occurred
+  // ...
+  setErrorMessage(error.message);
+});
+   
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    setErrorMessage(errorCode+"-"+errorMessage)
+  });
+    }
+    else{
+      signInWithEmailAndPassword(auth, emailVal, passwordVal)
+  .then((userCredential) => {})
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage(errorCode+"-"+errorMessage);
+  });
+    }
 
     // Proceed with login or registration logic
   };
     return (
         <div ><Header/>
-       <div className="absolute "> <img src="https://assets.nflxext.com/ffe/siteui/vlv3/202ac35e-1fca-44f0-98d9-ea7e8211a07c/web/IN-en-20250512-TRIFECTA-perspective_688b8c03-78cb-46a6-ac1c-1035536f871a_medium.jpg" alt="netflix-bg"/></div>
+       <div className="absolute "> <img src={Logo_Netflix}alt="netflix-bg"/></div>
        <form onSubmit={(e)=>{e.preventDefault()}} className=" absolute p-12 bg-black w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-lg">
        <h1 className="font-bold text-3xl p-2">{ isSignInForm ? "Sign-in":"Sign-Up"}</h1>
        {!isSignInForm&&( <input type="text" ref={name}placeholder="Your Name"  className="p-2 my-4 w-full bg-gray-600"/>)}
