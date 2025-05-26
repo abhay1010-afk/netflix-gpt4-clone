@@ -1,15 +1,16 @@
 import Header from "./Header";
 
 import UseNowPayingMovie from "../Hooks/UseNowPlayingMovie";
-import MainComponet from "./MainComponent";
+import MainComponent from "./MainComponent";
 
 const Browse = () => {
   //Fetch data from tmdb api and update the store
 UseNowPayingMovie();
-<MainComponet/>
+
   return (
     <div>
       <Header />
+      <MainComponent/>
     </div>
   );
 };

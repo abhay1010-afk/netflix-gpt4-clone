@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.play:hover{
+    background-color: rgb(10, 231, 139);;
+}

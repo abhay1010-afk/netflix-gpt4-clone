@@ -1,17 +1,23 @@
 import { useSelector } from "react-redux";
+import VideoTitle from "./VideoTitle";
+import VideoBg from "./VideoBg";
 
+const MainComponent = () => {
+  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
 
-const MainComponet=()=>{
-    const firstMovie=useSelector(store=>store.movies?.nowPlayingMovies);
-    if(!firstMovie){return;}
-    console.log(firstMovie[0]);
-    const moviefirst=firstMovie[0];
-    console.log(moviefirst);
-    console.log("hello");
-    return (
-        <div>
-            
-        </div>
-    )
+  if (!movies || movies.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  const mainMovie = movies[0];
+  console.log(mainMovie);
+   const {original_title,overview}=mainMovie;
+  return (
+    <div>
+      <VideoTitle title={original_title} overview={overview} />
+      <VideoBg  />
+    </div>
+  );
 };
-export default MainComponet;
+
+export default MainComponent;
