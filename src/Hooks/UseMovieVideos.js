@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { playNowPLayingTrailer } from "../utils/moviesSlice";
+import { playNowPlayingTrailer } from "../utils/moviesSlice";
 import { useEffect } from "react";
 import { API_Options } from "../utils/Constant";
 
@@ -14,7 +14,7 @@ const useMovieVideos=(movieId)=>{
         // console.log(filterData);
         const trailer=filterData.length? filterData[0]:response.results[0];
         // console.log(trailer);
-        dispatch(playNowPLayingTrailer(trailer));
+        dispatch(playNowPlayingTrailer(trailer));
     }
     useEffect(()=>{
         Moviedata();

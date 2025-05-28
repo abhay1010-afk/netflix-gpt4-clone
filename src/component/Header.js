@@ -47,12 +47,12 @@ return ()=>unsubscribe();
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="currentColor"
-    className="w-8 h-8 text-gray-700"
+    className="w-12 h-12 text-white bg-red-700 rounded-md"
   >
     <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z" />
   </svg>
    <h4>{user.displayName}</h4>
-  <button  onClick={handlesignout} className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+  <button  onClick={handlesignout} className="bg-red-500 text-black px-4 py-2 rounded hover:bg-red-700 transition">
     Sign Out
   </button>
 </div>}
