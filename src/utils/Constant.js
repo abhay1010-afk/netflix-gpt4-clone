@@ -9,3 +9,4 @@ export const API_Options=  {
   }
 };
 export const IMG_CDN_URL="https://image.tmdb.org/t/p/w780";
+export const SUPPORTED_LANG=[{identifier:"English",name:"en"},{identifier:"Hindi",name:"hindi"},{identifier:"Spanish",name:"spanish"}];
