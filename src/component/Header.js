@@ -11,6 +11,7 @@ const Header=()=>{
     const navigate=useNavigate();
     const dispatch=useDispatch();
     const user=useSelector(store=>store.user);
+    const showGptSearch=useSelector(store=>store.Gpt.showGptSearch);
     
     const handlesignout=()=>{
         signOut(auth).then(() => {
@@ -54,9 +55,9 @@ return ()=>unsubscribe();
     return (<div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between ">
         <img src={bg_img }alt="netflix logo" className="w-44 "/>
 {user &&<div className="flex items-center gap-2 p-4 w-fit  rounded-lg ">
-  <select className="p-2 m-2 bg-gray-900 text-white rounded-lg" onChange={handlelanguagechange}>{SUPPORTED_LANG.map((lang)=> <option key={lang.identifier} value={lang.name}>{lang.identifier}</option>)}
-  </select>
-     <button className="p-2 m-2 rounded-lg bg-purple-700 text-white" onClick={handleGptSearch}>GPT-Search</button>
+{showGptSearch &&  <select className="p-2 m-2 bg-gray-900 text-white rounded-lg" onChange={handlelanguagechange}>{SUPPORTED_LANG.map((lang)=> <option key={lang.identifier} value={lang.name}>{lang.identifier}</option>)}
+  </select>}
+     <button className="p-2 m-2 rounded-lg bg-purple-700 text-white" onClick={handleGptSearch}>{showGptSearch?"Home-page":"GPT-Search"} </button>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
