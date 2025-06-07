@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Lang from "../utils/languageConstants";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { API_Options, GEMENI_APIKEY, MOVIE_PROMPT } from "../utils/Constant";
-import { useState } from "react";
-import { addMovies } from "../utils/moviesSlice";
+import { useEffect, useState } from "react";
+import { addMovies,clearGeminiMovies } from "../utils/moviesSlice";
 
 const GptSearchBar = () => {
     const dispatch=useDispatch();
@@ -11,6 +11,9 @@ const GptSearchBar = () => {
   const langKey = useSelector((store) => store.config.lang);
 //   console.log(Lang[langKey]);
 // console.log(GEMENI_APIKEY);
+useEffect(()=>{
+  dispatch(clearGeminiMovies());
+},[]);
     const fetchmovie= async (movie)=>{
        
            const url="https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1";

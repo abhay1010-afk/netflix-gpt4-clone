@@ -31,9 +31,13 @@ const moviesSlice=createSlice({
         },
         playNowUpcomingMovie:(state,action)=>{
             state.NowUpcomingMovie=action.payload;
+        },
+        clearGeminiMovies:(state)=>{
+            state.nowGeminiMovies=null;
+            state.nowmoviesdata=null;
         }
     }
 });
-export const {addNowPlayingMovies,playNowPlayingTrailer,playNowPlayingPopular,playNowPlayingTrending,playNowUpcomingMovie,addMovies}=moviesSlice.actions;
+export const {addNowPlayingMovies,playNowPlayingTrailer,playNowPlayingPopular,playNowPlayingTrending,playNowUpcomingMovie,addMovies,clearGeminiMovies}=moviesSlice.actions;
 export default moviesSlice.reducer;
  
