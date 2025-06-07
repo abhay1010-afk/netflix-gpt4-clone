@@ -20,6 +20,6 @@ import { useEffect } from "react";
 
   useEffect(() => {
     getmovielist();
-  }, []);
+  });
 }
 export default UseTrending;

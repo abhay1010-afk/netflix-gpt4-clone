@@ -18,6 +18,6 @@ const useMovieVideos=(movieId)=>{
     }
     useEffect(()=>{
         Moviedata();
-    },[]);
+    });
 }
 export default useMovieVideos;

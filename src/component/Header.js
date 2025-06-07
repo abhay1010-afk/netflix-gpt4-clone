@@ -46,7 +46,7 @@ const Header=()=>{
 });
 // this will unmont the onauthstatechanged
 return ()=>unsubscribe();
-    },[]);
+    });
     const handleGptSearch=()=>{
       //Toggle gptsearch
       dispatch(toggleGptSearch());

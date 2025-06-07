@@ -13,7 +13,7 @@ const GptSearchBar = () => {
 // console.log(GEMENI_APIKEY);
 useEffect(()=>{
   dispatch(clearGeminiMovies());
-},[]);
+});
     const fetchmovie= async (movie)=>{
        
            const url="https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1";
