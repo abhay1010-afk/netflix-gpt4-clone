@@ -30,3 +30,8 @@ Browse (after authentication)
           unsubsribe to the auth call state change
           using VPN open the tmdb site and make a account and register an application to get the api key and the token
           -fetch the api of movies list from documentation
+          -Make the browse page
+          -GPT search page
+          -GPT Search bar
+          -(multi lingual web page )
+          -Intergrate GPT APIs
