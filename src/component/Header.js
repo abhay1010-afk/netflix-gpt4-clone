@@ -52,9 +52,9 @@ return ()=>unsubscribe();
       dispatch(toggleGptSearch());
     }
 
-    return (<div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between ">
-        <img src={bg_img }alt="netflix logo" className="w-44 "/>
-{user &&<div className="flex items-center gap-2 p-4 w-fit  rounded-lg ">
+    return (<div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex flex-col justify-between md:flex-row  ">
+        <img src={bg_img }alt="netflix logo" className="w-44 mx-auto md:mx-0 "/>
+{user &&<div className="flex  justify-between md:items-center gap-2 p-4 w-fit  rounded-lg ">
 {showGptSearch &&  <select className="p-2 m-2 bg-gray-900 text-white rounded-lg" onChange={handlelanguagechange}>{SUPPORTED_LANG.map((lang)=> <option key={lang.identifier} value={lang.name}>{lang.identifier}</option>)}
   </select>}
      <button className="p-2 m-2 rounded-lg bg-purple-700 text-white" onClick={handleGptSearch}>{showGptSearch?"Home-page":"GPT-Search"} </button>
