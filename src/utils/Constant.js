@@ -5,10 +5,10 @@ export const API_Options=  {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMjNmNTNmMzU1Nzc5YTEzOTQxZDJlNTY1ZTg4YjA5OSIsIm5iZiI6MTc0ODAwMjg3OS4yOCwic3ViIjoiNjgzMDY4M2Y2ZDcwNzhjODYxNDEzNDA3Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.RxJCZAcGZ1hijj0wznTllWjmvJDpS-4TUWsTh2gkWMU'
+    Authorization: 'Bearer'+ process.env.REACT_APP_TMDB_KEY,
   }
 };
 export const IMG_CDN_URL="https://image.tmdb.org/t/p/w780";
 export const SUPPORTED_LANG=[{identifier:"English",name:"en"},{identifier:"Hindi",name:"hindi"},{identifier:"Spanish",name:"spanish"}];
-export const GEMENI_APIKEY='AIzaSyBq_mU_nJ1QkJxTaN5MtuXZi63c3kraK1w';
+export const GEMENI_APIKEY=process.env.REACT_APP_GEMENI_APIKEY_;
 export const MOVIE_PROMPT="work like movie recommendation system & give top 5 movie on topic only name's in comma separated lists";
