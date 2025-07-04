@@ -6,7 +6,7 @@ const SecondoryComponent=()=>{
    
     return (
         <div className="bg-zinc-900 ">
-            <div className=" mt-0 md:-mt-52 z-20 relative pl-2 md:pl-8">
+            <div className=" mt-0 z-20 relative pl-2 ">
          <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
          <MovieList title={"Popular"} movies={movies.nowPlayingPopular} />
          <MovieList title={"Trending"} movies={movies.nowPlayingTrending} />

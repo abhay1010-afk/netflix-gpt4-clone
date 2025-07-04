@@ -5,7 +5,7 @@ import GptSearchBar from "./GptSearchBar";
 const GPTSearch=()=>{
     return (
         <>
-         <div className="fixed -z-10"><img src={Logo_Netflix}alt="netflix-bg" className="h-screen object-cover"/>
+         <div className="fixed -z-10"><img src={Logo_Netflix}alt="netflix-bg" className="h-screen w-screen object-cover"/>
          </div>
         <div className="">
              

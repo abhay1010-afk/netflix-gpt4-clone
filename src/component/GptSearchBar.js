@@ -13,7 +13,7 @@ const GptSearchBar = () => {
 // console.log(GEMENI_APIKEY);
 useEffect(()=>{
   dispatch(clearGeminiMovies());
-});
+},[]);
     const fetchmovie= async (movie)=>{
        
            const url="https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1";
@@ -48,9 +48,9 @@ const result = await model.generateContent(prompt);
   
   };
   return (
-    <div className="pt-[35%] md:pt-[10%] flex justify-center">
+    <div className="pt-52 flex justify-center">
       <form
-        className="w-full md:w-1/2  bg-black grid grid-cols-12"
+        className="w-[75%]  bg-black grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input

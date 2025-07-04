@@ -13,7 +13,7 @@ const MainComponent = () => {
   // console.log(mainMovie);
    const {original_title,overview,id}=mainMovie;
   return (
-    <div className="pt-[30%] md:pt-0 bg-black">
+    <div className="pt-auto bg-black">
       <VideoTitle title={original_title} overview={overview} />
       <VideoBg movieId={id} />
     </div>
